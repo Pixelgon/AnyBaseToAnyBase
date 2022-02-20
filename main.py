@@ -21,58 +21,10 @@ while cycl == 1:
     # Pokud je zaklad vetsi nebo rovno 11, tak prevedeme pismena ktera jsou v listu na cisla
     if zaklad >= 11:
         for letter, n in enumerate(cislo_vstup):
-            if n == 'A':
-                cislo_vstup[letter] = '10'
-            if n == 'B':
-                cislo_vstup[letter] = '11'
-            if n == 'C':
-                cislo_vstup[letter] = '12'
-            if n == 'D':
-                cislo_vstup[letter] = '13'
-            if n == 'E':
-                cislo_vstup[letter] = '14'
-            if n == 'F':
-                cislo_vstup[letter] = '15'
-            if n == 'G':
-                cislo_vstup[letter] = '16'
-            if n == 'H':
-                cislo_vstup[letter] = '17'
-            if n == 'I':
-                cislo_vstup[letter] = '18'
-            if n == 'J':
-                cislo_vstup[letter] = '19'
-            if n == 'K':
-                cislo_vstup[letter] = '20'
-            if n == 'L':
-                cislo_vstup[letter] = '21'
-            if n == 'M':
-                cislo_vstup[letter] = '22'
-            if n == 'N':
-                cislo_vstup[letter] = '23'
-            if n == 'O':
-                cislo_vstup[letter] = '24'
-            if n == 'P':
-                cislo_vstup[letter] = '25'
-            if n == 'Q':
-                cislo_vstup[letter] = '26'
-            if n == 'R':
-                cislo_vstup[letter] = '27'
-            if n == 'S':
-                cislo_vstup[letter] = '28'
-            if n == 'T':
-                cislo_vstup[letter] = '29'
-            if n == 'U':
-                cislo_vstup[letter] = '30'
-            if n == 'V':
-                cislo_vstup[letter] = '31'
-            if n == 'W':
-                cislo_vstup[letter] = '32'
-            if n == 'X':
-                cislo_vstup[letter] = '33'
-            if n == 'Y':
-                cislo_vstup[letter] = '34'
-            if n == 'Z':
-                cislo_vstup[letter] = '35'
+            if ord(n) >= 65 and ord(n) <= 90:
+                cislo_vstup[letter] = ord(n) - 55
+            if ord(n) >= 97 and ord(n) <= 122:
+                cislo_vstup[letter] = ord(n) - 87
     # Itemi v listu prevedeme na int
     cislo_vstup_map = map(int, cislo_vstup)
     cislo_vstup = list(cislo_vstup_map)
@@ -93,9 +45,6 @@ while cycl == 1:
         # Kdyz je cislo[i] mezi 0 a 9
         if cislo_vstup[i] >= 0 <= 9:
                 cislice = int(cislo_vstup[i])
-            # kdyz je cislo mezi A a Z
-        elif cislo_vstup[i] >= "A" <= "Z":
-                    cislice = ord(cislo_vstup[i]) - 55
         else:
             print("Chyba ve vstupním čísle")
             exit()
@@ -120,7 +69,7 @@ while cycl == 1:
     vysledek = vysledek[::-1]
     # Vysledek vypiseme
     print("Výsledek je:", vysledek)
-    print("Chcete převést nové číslo?: ")
+    print("Chcete převést nové číslo?")
     print("     1. ANO")
     print("     2. NE")
     cycl = int(input(": "))

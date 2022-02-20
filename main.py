@@ -3,6 +3,12 @@
 
 def split(word):
     return list(word)
+def lettonum():
+    for letter, n in enumerate(cislo_vstup):
+        if ord(n) >= 65 and ord(n) <= 90:
+            cislo_vstup[letter] = ord(n) - 55
+        if ord(n) >= 97 and ord(n) <= 122:
+            cislo_vstup[letter] = ord(n) - 87
 cycl = 1
 while cycl == 1:
     # Nacteme zaklad jako int
@@ -18,13 +24,8 @@ while cycl == 1:
     # Z cislo_vstup udelame list, kazdy znak rovna se 1 item v listu
     cislo_vstup = split(cislo_vstup)
 
-    # Pokud je zaklad vetsi nebo rovno 11, tak prevedeme pismena ktera jsou v listu na cisla
-    if zaklad >= 11:
-        for letter, n in enumerate(cislo_vstup):
-            if ord(n) >= 65 and ord(n) <= 90:
-                cislo_vstup[letter] = ord(n) - 55
-            if ord(n) >= 97 and ord(n) <= 122:
-                cislo_vstup[letter] = ord(n) - 87
+    # Prevedeme pismena ktera jsou v listu na cisla
+    lettonum()
     # Itemi v listu prevedeme na int
     cislo_vstup_map = map(int, cislo_vstup)
     cislo_vstup = list(cislo_vstup_map)
@@ -34,6 +35,7 @@ while cycl == 1:
         cislo_vstup = str(input("Zadejte číslo znovu: "))
         cislo_vstup = cislo_vstup.strip()
         cislo_vstup = split(cislo_vstup)
+        lettonum()
         cislo_vstup_map = map(int, cislo_vstup)
         cislo_vstup = list(cislo_vstup_map)
 
